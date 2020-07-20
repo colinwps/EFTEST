@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp2.Models;
+using ConsoleApp2.MySqlModels;
 
 namespace ConsoleApp2
 {
@@ -11,9 +12,16 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            CDBContext dBContext = new CDBContext();
-            var listUser = dBContext.userInfos.ToList();
+            CMysqlDBContext K = new CMysqlDBContext();
             
+            var list = K.userInfos.ToList();
+            K.Dispose();
+
+            CDBContext dBContext = new CDBContext();
+
+
+            var listUser = dBContext.userInfos.ToList();
+
         }
     }
 }

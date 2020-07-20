@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
-//using MySql.Data.Entity;
+using MySql.Data.Entity;
 
-namespace ConsoleApp2.Models
+
+namespace ConsoleApp2.MySqlModels
 {
-    
-
-    public class CDBContext:DbContext
+    [DbConfigurationType(typeof(MySqlEFConfiguration))]
+    public class CMysqlDBContext:DbContext
     {
-        public CDBContext():base("name = mssql")
-        { 
-        }
+        public CMysqlDBContext():base("name = mysql")
+        { }
+
         public DbSet<UserInfo> userInfos { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
