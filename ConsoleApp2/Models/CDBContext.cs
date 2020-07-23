@@ -9,7 +9,6 @@ using System.Data.Entity;
 namespace ConsoleApp2.Models
 {
     
-
     public class CDBContext:DbContext
     {
         public CDBContext():base("name = mssql")
